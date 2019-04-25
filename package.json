@@ -2,6 +2,16 @@
   "name": "recipe-app-with-react-router",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Emrullah Ayın",
+    "email": "ayinemrullah@gmail.com",
+    "url": "https://github.com/emrullahayin"
+  },
+  "keywords": [
+    "react",
+    "react-router",
+    "material-ui"
+  ],
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.6",
