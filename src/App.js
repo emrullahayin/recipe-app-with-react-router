@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchForm from "./components/SearchForm";
 
 const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
+  const [recipe, setRecipe] = useState();
+
+  const getRecipe = () => {
+    console.log("Working!!! :");
+  };
+
+  return <SearchForm getRecipe={getRecipe} />;
 };
 
 export default App;
