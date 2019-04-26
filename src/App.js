@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import SearchForm from "./components/SearchForm";
 
 const App = () => {
-  const [recipe, setRecipe] = useState();
+  //const [recipe, setRecipe] = useState();
 
-  const getRecipe = () => {
-    console.log("Working!!! :");
+  const getRecipe = e => {
+    e.preventDefault();
+    console.log("Working!!!");
   };
 
   return <SearchForm getRecipe={getRecipe} />;

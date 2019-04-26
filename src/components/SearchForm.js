@@ -7,7 +7,9 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
-const SearchForm = () => {
+const SearchForm = props => {
+  const { getRecipe } = props;
+
   return (
     <Container>
       <Row>
@@ -20,7 +22,9 @@ const SearchForm = () => {
                 aria-describedby="basic-addon2"
               />
               <InputGroup.Append>
-                <Button variant="primary">Search</Button>
+                <Button variant="primary" onClick={getRecipe}>
+                  Search
+                </Button>
               </InputGroup.Append>
             </InputGroup>
           </Form>
