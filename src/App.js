@@ -5,15 +5,16 @@ import SearchForm from "./components/SearchForm";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  const API_KEY = "86a6d7f3a42992d00265a65cc247e16e";
 
-  const fetchRecipe = async recipeName => {
-    if (recipeName !== undefined && recipeName !== "") {
-      const API_URL = `https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=5`;
+  const API_ID = "1d018658";
+  const API_KEY = "eefe424911982c21e5f6506847fff4fe";
+
+  const fetchRecipe = async name => {
+    if (name !== undefined && name !== "") {
+      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&count=30`;
       try {
         const response = await axios.get(API_URL);
-        setRecipes(response.data.recipes);
-        console.log(recipes);
+        setRecipes(response.data.hits);
       } catch (error) {
         console.error(error);
       }
@@ -28,7 +29,16 @@ const App = () => {
     fetchRecipe(recipeName);
   };
 
-  return <SearchForm getRecipe={getRecipe} />;
+  return (
+    <div>
+      <SearchForm getRecipe={getRecipe} />
+      {recipes.map((data, index) => (
+        <div key={index}>
+          <h1 className="mt-3">{data.recipe.label}</h1>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default App;
