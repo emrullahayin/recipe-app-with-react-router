@@ -11,7 +11,7 @@ const App = () => {
 
   const fetchRecipe = async name => {
     if (name !== undefined && name !== "") {
-      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&count=30`;
+      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&to=10`;
       try {
         const response = await axios.get(API_URL);
         setRecipes(response.data.hits);
