@@ -13,7 +13,6 @@ const SearchForm = props => {
       <Form onSubmit={getRecipe}>
         <InputGroup className="mt-3">
           <FormControl
-            autoComplete="off"
             placeholder=""
             aria-label="Search"
             aria-describedby="basic-addon2"
