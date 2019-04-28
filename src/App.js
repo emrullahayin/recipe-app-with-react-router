@@ -13,15 +13,15 @@ const containerStyle = {
 const App = () => {
   const [recipes, setRecipes] = useState([]);
 
-  const API_KEY = "86a6d7f3a42992d00265a65cc247e16e";
+  const API_ID = "1d018658";
+  const API_KEY = "2d32770f279b4e12e5dc99d98b50573a";
 
   const fetchRecipe = async name => {
     if (name !== undefined && name !== "") {
-      const API_URL = `https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}`;
+      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&to=50`;
       try {
         const response = await axios.get(API_URL);
-        console.log("response :", response);
-        setRecipes(response.data.recipes);
+        setRecipes(response.data.hits);
       } catch (error) {
         console.error(error);
       }

@@ -6,10 +6,10 @@ import Card from "react-bootstrap/Card";
 
 const Recipes = props => {
   const { recipes } = props;
-
+  console.log("recipes", recipes);
   return (
     <div className="mt-4" style={{ columnCount: "2", columnGap: "1em" }}>
-      {recipes.map(recipe => (
+      {recipes.map((recipe, index) => (
         <Card
           bg="light"
           style={{
@@ -17,18 +17,26 @@ const Recipes = props => {
             marginBottom: "1em",
             display: "inline-block"
           }}
-          key={recipe.recipe_id}
+          key={recipe.recipe.label + index}
         >
-          <Card.Img variant="top" src={recipe.image_url} alt={recipe.title} />
+          <Card.Img
+            variant="top"
+            src={recipe.recipe.image}
+            alt={recipe.recipe.label}
+          />
           <Card.Body>
-            <Card.Title>{recipe.title}</Card.Title>
-            <Card.Text>{recipe.publisher}</Card.Text>
+            <Card.Title>{recipe.recipe.label}</Card.Title>
+            <Card.Text>{recipe.recipe.source}</Card.Text>
           </Card.Body>
           <Card.Body>
             <Link
               to={{
-                pathname: `/recipe/${recipe.recipe_id}`,
-                state: { recipe: recipe.title }
+                pathname: `/recipe/${recipe.recipe.label
+                  .replace(/\s+/g, "-")
+                  .toLowerCase() +
+                  "-" +
+                  index}`,
+                state: { recipe: recipe.recipe.label }
               }}
             >
               View Recipe
