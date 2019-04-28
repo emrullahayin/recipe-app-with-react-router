@@ -13,15 +13,15 @@ const containerStyle = {
 const App = () => {
   const [recipes, setRecipes] = useState([]);
 
-  const API_ID = "1d018658";
-  const API_KEY = "eefe424911982c21e5f6506847fff4fe";
+  const API_KEY = "86a6d7f3a42992d00265a65cc247e16e";
 
   const fetchRecipe = async name => {
     if (name !== undefined && name !== "") {
-      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&to=10`;
+      const API_URL = `https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}`;
       try {
         const response = await axios.get(API_URL);
-        setRecipes(response.data.hits);
+        console.log("response :", response);
+        setRecipes(response.data.recipes);
       } catch (error) {
         console.error(error);
       }
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <Container style={containerStyle}>
       <SearchForm getRecipe={getRecipe} />
-      <Recipes recipes={recipes}/>
+      <Recipes recipes={recipes} />
     </Container>
   );
 };
