@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import Container from "react-bootstrap/Container";
+
 import SearchForm from "./components/SearchForm";
+import Recipes from "./components/Recipes";
+
+const containerStyle = {
+  textAlign: "center"
+};
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -30,14 +37,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <Container style={containerStyle}>
       <SearchForm getRecipe={getRecipe} />
-      {recipes.map((data, index) => (
-        <div key={index}>
-          <h1 className="mt-3">{data.recipe.label}</h1>
-        </div>
-      ))}
-    </div>
+      <Recipes recipes={recipes}/>
+    </Container>
   );
 };
 
