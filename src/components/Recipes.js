@@ -6,9 +6,9 @@ import Card from "react-bootstrap/Card";
 
 const Recipes = props => {
   const { recipes } = props;
-  console.log("recipes", recipes);
+  const column = window.innerWidth < 769 ? 2 : 4;
   return (
-    <div className="mt-4" style={{ columnCount: "2", columnGap: "1em" }}>
+    <div className="mt-4" style={{ columnCount: column, columnGap: "1em" }}>
       {recipes.map((recipe, index) => (
         <Card
           bg="light"
