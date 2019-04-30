@@ -46,9 +46,9 @@ const Recipe = props => {
             <Card.Text>{activeRecipe.source}</Card.Text>
           </Card.Body>
           <Card.Body>
-            <Button variant="outline-primary">
-              <Link to="/">Go Home</Link>
-            </Button>
+            <Link to="/">
+              <Button variant="outline-primary">Go Home</Button>
+            </Link>
           </Card.Body>
         </Card>
       )}
