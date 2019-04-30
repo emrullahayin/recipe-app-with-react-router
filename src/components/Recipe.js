@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const Recipe = props => {
   const [activeRecipe, setActiveRecipe] = useState([]);
-  console.log("props :", props.location.state.recipe);
   const API_ID = "1d018658";
   const API_KEY = "2d32770f279b4e12e5dc99d98b50573a";
 
@@ -15,7 +16,6 @@ const Recipe = props => {
     try {
       const response = await axios.get(API_URL);
       setActiveRecipe(response.data.hits[0].recipe);
-      console.log(response.data.hits);
     } catch (error) {
       console.error(error);
     }
@@ -44,6 +44,11 @@ const Recipe = props => {
           <Card.Body>
             <Card.Title>{activeRecipe.label}</Card.Title>
             <Card.Text>{activeRecipe.source}</Card.Text>
+          </Card.Body>
+          <Card.Body>
+            <Button variant="outline-primary">
+              <Link to="/">Go Home</Link>
+            </Button>
           </Card.Body>
         </Card>
       )}
