@@ -17,7 +17,7 @@ const Recipes = props => {
             marginBottom: "1em",
             display: "inline-block"
           }}
-          key={recipe.recipe.label + index}
+          key={index}
         >
           <Card.Img
             variant="top"
