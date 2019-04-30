@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Container from "react-bootstrap/Container";
@@ -11,7 +11,8 @@ const containerStyle = {
 };
 
 const App = () => {
-  const [recipes, setRecipes] = useState([]);
+  const prevRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+  const [recipes, setRecipes] = useState(prevRecipes);
 
   const API_ID = "1d018658";
   const API_KEY = "2d32770f279b4e12e5dc99d98b50573a";
@@ -35,6 +36,10 @@ const App = () => {
     e.preventDefault();
     fetchRecipe(recipeName);
   };
+
+  useEffect(() => {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  }, [recipes]);
 
   return (
     <Container style={containerStyle}>
