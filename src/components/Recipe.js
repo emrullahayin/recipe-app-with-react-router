@@ -33,6 +33,7 @@ const Recipe = props => {
           style={{
             width: "300px",
             marginBottom: "1em",
+            marginTop: "1em",
             display: "inline-block"
           }}
         >
