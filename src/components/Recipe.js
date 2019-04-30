@@ -21,27 +21,30 @@ const Recipe = props => {
     }
   };
 
-  useEffect(() => console.log("getRecipe", getRecipe()), []);
+  useEffect(() => {
+    getRecipe();
+  }, []);
 
   return (
-    <div className="container">
-      {[activeRecipe].map((recipe, index) => (
-        <Card
-          bg="light"
-          style={{
-            width: "100%",
-            marginBottom: "1em",
-            display: "inline-block"
-          }}
-          key={recipe.label + index}
-        >
-          <Card.Img variant="top" src={recipe.image} alt={recipe.label} />
-          <Card.Body>
-            <Card.Title>{recipe.label}</Card.Title>
-            <Card.Text>{recipe.source}</Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+    <div className="container text-center">
+      <Card
+        bg="light"
+        style={{
+          width: "300px",
+          marginBottom: "1em",
+          display: "inline-block"
+        }}
+      >
+        <Card.Img
+          variant="top"
+          src={activeRecipe.image}
+          alt={activeRecipe.label}
+        />
+        <Card.Body>
+          <Card.Title>{activeRecipe.label}</Card.Title>
+          <Card.Text>{activeRecipe.source}</Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 };
