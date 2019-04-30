@@ -33,7 +33,7 @@ const Recipe = props => {
 
   return (
     <div className="container text-center">
-      {loading !== false ? (
+      {loading === true ? (
         <Spinner className="mt-3" animation="border" variant="primary" />
       ) : (
         <div>
