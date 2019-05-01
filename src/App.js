@@ -16,8 +16,8 @@ const App = () => {
   const [recipes, setRecipes] = useState(prevRecipes);
   const [loading, setLoading] = useState(true);
 
-  const API_ID = "1d018658";
-  const API_KEY = "2d32770f279b4e12e5dc99d98b50573a";
+  const API_ID = "your api id";
+  const API_KEY = "your api key";
 
   const fetchRecipe = async name => {
     if (name !== undefined && name !== "") {
