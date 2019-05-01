@@ -29,7 +29,7 @@ const Recipe = props => {
 
   useEffect(() => {
     getRecipe();
-  }, []);
+  });
 
   return (
     <div className="container text-center">
