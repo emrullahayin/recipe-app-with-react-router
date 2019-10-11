@@ -20,18 +20,13 @@ const App = () => {
   const API_KEY = "your api key";
 
   const fetchRecipe = async name => {
-    if (name !== undefined && name !== "") {
-      const API_URL = `https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&to=100`;
-      try {
-        const response = await axios.get(API_URL);
-        setRecipes(response.data.hits);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    } else {
-      alert("Please enter a recipe name");
+    try {
+      const response = await axios.get(`https://api.edamam.com/search?q=${name}&app_id=${API_ID}&app_key=${API_KEY}&to=100`);
+      setRecipes(response.data.hits);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
     }
   };
 

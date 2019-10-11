@@ -17,6 +17,7 @@ const SearchForm = props => {
             aria-label="Search"
             aria-describedby="basic-addon2"
             name="recipeName"
+            required
           />
           <InputGroup.Append>
             <Button variant="primary" type="submit">
